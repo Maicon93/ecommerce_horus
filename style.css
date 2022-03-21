@@ -1,7 +1,7 @@
 .container {
     width: 100vw;
     height: 100vh;
-    background: #6C7A89;
+    background: rgba(126, 38, 38, 0.39);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -9,11 +9,25 @@
 }
     
 .box {
-     width: 300px;
-     height: 300px;
+     width: 350px;
+     height: 600px;
      background: #fff;
+     border-radius: 10px;
+     align-items: center;
+     box-shadow: 5px 5px 5px 5px whitesmoke;
+     text-align: center;
 }
     
 body {
     margin: 0px;
+ 
+}
+
+.input:hover{
+    
+    width: 300px;
+}
+.teste{
+    box-shadow: 0 0 1em silver;
+    margin: 30px;
 }
