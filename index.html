@@ -1,3 +1,26 @@
+<script>
+    const basePath = window.location.protocol + '//' + window.location.host;
+
+    function login() {
+        const url = `${basePath}/ecommerce_horus/login/session.php`;
+        const params = {
+            login: document.getElementById('login').value,
+            senha: document.getElementById('senha').value
+        }
+        return fetch(url, {
+            method: "POST",
+            body: new URLSearchParams(params)
+        }).then(function(resp) {
+            let login = document.getElementById('login').value;
+            let senha = document.getElementById('senha').value;
+            let painel = `${basePath}/ecommerce_horus/app/painel.php`;
+            if (login == 'admin' && senha == 'admin') {
+                window.location.href = painel;
+            }
+        })
+    }
+</script>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,20 +34,25 @@
 <body>
     <main>
         <h2>Login</h2>
-
-        <form action="">
-            <div class="campo-input">
-                <input type="text" name="nome" placeholder="Digite o seu nome de usuário">
-                <div class="underline"></div>
-            </div>
-
-            <div class="campo-input">
-                <input type="password" name="senha" placeholder="Digite a sua senha">
-                <div class="underline"></div>
-            </div>
-
-            <input type="submit" value="Continue">
-        </form>
+        <table>
+            <tr>
+                <td>
+                    <input type="text" id="login" name="nome" placeholder="Digite o seu nome de usuário">
+                </td>
+                <td>
+                    <div class="underline"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password" id="senha" name="senha" placeholder="Digite a sua senha">
+                </td>
+                <td>
+                    <div class="underline"></div>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" onClick="login()">
 
         <footer>
             <span> <a href="#">Crie sua conta</a> ou conecte com as mídias sociais</span>
