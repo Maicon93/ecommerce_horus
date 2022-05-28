@@ -1,3 +1,9 @@
+<?php
+$path = $_SERVER['DOCUMENT_ROOT'] . '/ecommerce_horus//';
+$verif_session = $path . 'verif_session.php';
+require_once($verif_session);
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

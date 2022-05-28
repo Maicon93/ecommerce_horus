@@ -1,0 +1,10 @@
+{
+  "editor.tabSize": 3,
+  "editor.formatOnSave": true,
+  "editor.rulers": [
+    100
+  ],
+  "volar.formatting.printWidth": 100,
+  "phpcs.enable": false,
+  "phpcs.executablePath": "",
+}

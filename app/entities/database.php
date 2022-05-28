@@ -14,5 +14,15 @@ $script = [
         'id' => 2,
         'usuario' => 'Maicon',
         'query' => "insert into usuarios (login, senha, nome) values ('admin', 'admin', 'admin')"
+    ],
+    [
+        'id' => 3,
+        'usuario' => 'Maicon',
+        'query' => "alter table usuarios add column authToken varchar"
+    ],
+    [
+        'id' => 4,
+        'usuario' => 'Maicon',
+        'query' => 'alter table usuarios add column data_login TIMESTAMP'
     ]
 ];

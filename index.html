@@ -1,30 +1,23 @@
 <script>
     const basePath = window.location.protocol + '//' + window.location.host;
-
     function login() {
-        const url = `${basePath}/ecommerce_horus/login/session.php`;
-/*             let login = document.getElementById('login').value;
-            let senha = document.getElementById('senha').value;
-            let painel = `${basePath}/ecommerce_horus/app/painel.php`;
-            if (login == 'admin' && senha == 'admin') {
-                window.location.href = painel;
-            } else {
-                console.log('login inválido!');
-            } */
+        const url = `${basePath}/ecommerce_horus/app/controller/sessionController.php`;
         const params = {
             login: document.getElementById('login').value,
             senha: document.getElementById('senha').value
         }
-        return fetch(url, {
+        fetch(url, {
             method: "POST",
             body: new URLSearchParams(params)
-        }).then(function(resp) {
+        }).then((retorno) => {
+            return retorno.json();
+        }).then(resp => {
             console.log(resp);
-            let login = document.getElementById('login').value;
-            let senha = document.getElementById('senha').value;
-            let painel = `${basePath}/ecommerce_horus/app/painel.php`;
-            if (login == 'admin' && senha == 'admin') {
-                window.location.href = painel;
+            if (resp) {
+                window.location.href = `${basePath}/ecommerce_horus/app/painel.php`;
+            } else {
+                const el = document.getElementById('msgRetorno');
+                el.innerHTML = 'Dados de acesso incorretos';
             }
         })
     }
@@ -62,6 +55,7 @@
             </tr>
         </table>
         <input type="submit" onClick="login()">
+        <p id="msgRetorno"></p>
 
         <footer>
             <span> <a href="#">Crie sua conta</a> ou conecte com as mídias sociais</span>
